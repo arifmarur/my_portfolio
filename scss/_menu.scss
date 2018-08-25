@@ -42,6 +42,7 @@
 .menu {
   position: fixed;
   top: 0;
+  opacity: 0.9;
   width: 100%;
 
   visibility: hidden;
@@ -104,10 +105,29 @@
       //Slide in from right
       transform: translate3d(0, 0, 0);
     }
+
+    &.current > a {
+      color: $secondary-color;
+    }
+  }
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 26px;
+    text-transform: capitalize;
+    padding: 1rem 0;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    @include easeOut;
+
+    &:hover {
+      color: $secondary-color;
+    }
   }
 }
 
-// Delay each nav-item slide by 0.1sec
+// Delay each nav item slide by 0.1sec
 @for $x from 1 through 4 {
   .nav-item- :nth-child(#{$x}) {
     transition-delay: $x * 0.1s;
